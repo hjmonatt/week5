@@ -23,53 +23,8 @@ $f3->route('GET /', function() {
     //echo "Home Page";
     //Display a view
     $view = new Template();
-    echo $view->render('views/home.html');
-    //echo '<img src="images/food2.jpg">';
-});
+    echo $view->render('views/info.html');
 
-//Define a order route
-$f3->route('GET /order', function() {
-    //echo "Order Route";
-    $view = new Template();
-    echo $view->render('views/form1.html');
-});
-
-//Define an order2 route
-$f3->route('POST /order2', function() {
-
-    //Add data from form1 to session array
-    //var_dump($_POST);
-    if(isset($_POST['food'])){
-        $_SESSION['food'] = $_POST['food'];
-    }
-    //var_dump($_POST);
-    if(isset($_POST['meal'])){
-        $_SESSION['meal'] = $_POST['meal'];
-    }
-
-    //display a view
-    //echo "Order 2 Route";
-    $view = new Template();
-    echo $view->render('views/form2.html');
-});
-
-//Define a summary route
-$f3->route('POST /summary', function() {
-
-    //echo "<p>POST:<p>";
-    //var_dump($_POST);           //post array only contains the most updated data
-
-    //echo "<p>SESSION:<p>";
-    //var_dump($_SESSION);        //session array most secure array for data
-
-    //add data from form 2 to session array
-    if(isset($_POST['conds'])){
-        $_SESSION['conds'] = implode(", ", $_POST['conds']);
-    }
-
-    //echo "Summary Route";
-    $view = new Template();
-    echo $view->render('views/summary.html');
 
 });
 
